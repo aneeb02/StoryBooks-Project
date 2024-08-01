@@ -1,0 +1,32 @@
+<nav class="bg-gray-800 shadow-lg">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-between items-center py-4">
+      <div class="text-white font-bold text-2xl">
+        <a href="/" class="brand-logo">StoryBooks</a>
+      </div>
+      <div class="hidden md:flex space-x-6">
+        <a href="/stories" class="text-gray-300 hover:text-white"><i class="fa-solid fa-book-open"></i> Stories</a>
+        <a href="/dashboard" class="text-gray-300 hover:text-white">Dashboard</a>
+        <a href="/auth/logout" class="text-gray-300 hover:text-white"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+      </div>
+      <div class="md:hidden">
+        <button id="nav-toggle" class="text-gray-300 hover:text-white focus:outline-none">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+    <div id="nav-content" class="hidden md:hidden">
+      <ul class="flex flex-col space-y-2">
+        <li><a href="/stories" class="text-gray-300 hover:text-white block px-4 py-2"> </a></li>
+        <li><a href="/dashboard" class="text-gray-300 hover:text-white block px-4 py-2">Dashboard</a></li>
+        <li><a href="/auth/logout" class="text-gray-300 hover:text-white block px-4 py-2">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script>
+  document.getElementById('nav-toggle').addEventListener('click', function() {
+    document.getElementById('nav-content').classList.toggle('hidden');
+  });
+</script>

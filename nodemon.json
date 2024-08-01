@@ -1,0 +1,6 @@
+{
+  "watch": ["index.js", "routes/", "views/", "config/"],
+  "ext": "js,json,hbs",
+  "ignore": ["public/"],
+  "exec": "node index.js"
+}
