@@ -1,0 +1,26 @@
+<div class="container mx-auto p-4">
+    <h1 class="text-3xl font-bold mb-6">Stories by {{stories.[0].user.displayName}}</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      {{#each stories}}
+        <div class="bg-white shadow-md rounded-lg overflow-hidden">
+          <div class="p-4">
+            <div class="mb-4">
+              <img src="{{user.image}}" alt="" class="w-10 h-10 rounded-full inline-block mr-2">
+              <a href="/stories/user/{{user._id}}" class="text-gray-700 font-semibold">{{user.name}}</a>
+            </div>
+            <h4 class="text-xl font-bold mb-2">{{title}}</h4>
+            <p class="text-gray-600">{{body}}</p>
+          </div>
+          <div class="p-4 border-t border-gray-200 flex justify-between">
+            <a href="/stories/{{_id}}" class="btn bg-gray-400 hover:bg-gray-500 text-white px-4 py-2 rounded">Read More</a>
+            {{{editIcon user ../user _id}}}
+            <form action="/stories/{{_id}}?_method=DELETE" method="POST" style="display:inline;">
+              <button type="submit" class="btn bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded">Delete</button>
+            </form>
+          </div>
+        </div>
+      {{else}}
+        <p>No stories</p>
+      {{/each}}
+    </div>
+  </div>

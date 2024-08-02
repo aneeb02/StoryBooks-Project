@@ -6,7 +6,6 @@
   <title>{{title}}</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="./src/output.css">
-  <link href="/src/custom.css" rel="stylesheet">
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -21,13 +20,21 @@
   <div>
     {{{body}}}
   </div>
-  <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+   <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
   <script>
-    ClassicEditor
-      .create(document.querySelector('#body'))
-      .catch(error => {
+    document.addEventListener("DOMContentLoaded", function() {
+      ClassicEditor
+        .create(document.querySelector('#editor'))
+        .then(editor => {
+          document.querySelector('#storyForm').addEventListener('submit', function(e) {
+            // Set the value of the hidden input to the content of the editor
+            document.querySelector('#body').value = editor.getData();
+          });
+        })
+        .catch(error => {
           console.error(error);
-      });
+        });
+    });
   </script>
-</body>
+ </body>
 </html>
